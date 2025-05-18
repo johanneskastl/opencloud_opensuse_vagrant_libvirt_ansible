@@ -1,0 +1,64 @@
+---
+- name: Configure and start the OpenCloud server
+  hosts: all
+  gather_facts: true
+  become: true
+
+  handlers:
+
+    - name: Restart the opencloud-server service
+      ansible.builtin.systemd:
+        name: opencloud-server
+        state: restarted
+        daemon_reload: true
+      when:
+        - not opencloud_server_service_started.changed | bool
+
+  tasks:
+
+    - name: Run opencloud init
+      ansible.builtin.command:
+        cmd: >
+          /usr/bin/opencloud
+          init
+          --insecure yes
+          --admin-password atotallysecurepassword
+          --config-path /etc/opencloud-server/
+        creates: /etc/opencloud-server/opencloud.yaml
+
+    - name: Fix the permissions on /etc/opencloud-server/opencloud.yaml
+      ansible.builtin.file:
+        path: /etc/opencloud-server/opencloud.yaml
+        owner: root
+        group: opencloud-server
+        mode: '0640'
+
+    - name: Create the configuration file
+      ansible.builtin.template:
+        src: etc_sysconfig_opencloud-server.j2
+        dest: /etc/sysconfig/opencloud-server
+        owner: root
+        group: root
+        mode: '0644'
+      notify:
+        - Restart the opencloud-server service
+
+    - name: Start the opencloud-server service
+      ansible.builtin.systemd:
+        name: opencloud-server
+        state: started
+        enabled: true
+      register: opencloud_server_service_started
+
+    - name: Enable the opencloud-server service
+      ansible.builtin.systemd:
+        name: opencloud-server
+        enabled: true
+
+    - name: OpenCloud URL
+      ansible.builtin.debug:
+        msg: "Opencloud will reachable here: https://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:9200 (using a self-signed certificate)"
+
+    - name: OpenCloud credentials
+      ansible.builtin.debug:
+        msg: "Log in as user 'admin' with the password 'atotallysecurepassword'"
