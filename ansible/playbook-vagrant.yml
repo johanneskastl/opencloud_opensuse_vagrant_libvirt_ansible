@@ -26,3 +26,6 @@
 
 - name: Run playbook-all_nodes-add_home-ojkastl_buildservice_OpenCloud_repo.yml
   ansible.builtin.import_playbook: playbook-all_nodes-add_home-ojkastl_buildservice_OpenCloud_repo.yml
+
+- name: Run playbook-all_nodes-install_opencloud-server.yml
+  ansible.builtin.import_playbook: playbook-all_nodes-install_opencloud-server.yml
