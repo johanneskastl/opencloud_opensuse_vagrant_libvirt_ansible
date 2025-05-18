@@ -1,7 +1,7 @@
 # opencloud_opensuse_vagrant_libvirt_ansible
 
 Vagrant-libvirt setup that runs the [OpenCloud
-Server](https://docs.opencloud.eu/docs/admin/) based on the openSUSE package
+Server](https://github.com/opencloud-eu/opencloud) based on the openSUSE package
 that I am currently working on.
 
 This `main` branch uses openSUSE Leap 15.6 as operating system. The OS can be
