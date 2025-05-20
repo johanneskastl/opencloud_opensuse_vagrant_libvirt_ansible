@@ -1,10 +1,10 @@
 Vagrant.configure("2") do |config|
 
   # name the VMs
-  config.vm.define "opencloud-opensuse" do |node|
+  config.vm.define "opencloud-opensuse-tumbleweed" do |node|
 
     # which image to use
-    node.vm.box = "opensuse/Leap-15.6.x86_64"
+    node.vm.box = "opensuse/Tumbleweed.x86_64"
 
     # sizing of the VMs
     node.vm.provider "libvirt" do |lv|
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
     end
 
     # set the hostname
-    node.vm.hostname = "opencloud-opensuse"
+    node.vm.hostname = "opencloud-opensuse-tumbleweed"
 
     # disable the shared folder
     node.vm.synced_folder ".", "/vagrant", disabled: true
