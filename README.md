@@ -8,8 +8,10 @@ This branch (`main`) uses openSUSE Tumbleweed as operating system. The OS can be
 changed in the Vagrantfile. Please be aware, that this might break the Ansible
 provisioning.
 
-If I can get it working, there will be other branches for openSUSE Leap 15.6 or
-Leap 16.0 (once there is a Vagrant box available).
+There is another branch  called `Leap_15.6` that uses openSUSE Leap 15.6.
+
+Once there is a Vagrant box for openSUSE Leap 16.0, there might be a branch for
+that, too.
 
 ## A word to the wise
 
