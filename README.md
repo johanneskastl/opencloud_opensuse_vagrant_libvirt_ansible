@@ -4,15 +4,17 @@ Vagrant-libvirt setup that runs the [OpenCloud
 Server](https://github.com/opencloud-eu/opencloud) based on the openSUSE package
 that I am currently working on.
 
-This branch uses openSUSE Tumbleweed as operating system. The OS can be
+This branch (`main`) uses openSUSE Tumbleweed as operating system. The OS can be
 changed in the Vagrantfile. Please be aware, that this might break the Ansible
 provisioning.
 
-## WORK IN PROGRESS
+If I can get it working, there will be other branches for openSUSE Leap 15.6 or
+Leap 16.0 (once there is a Vagrant box available).
 
-**Attention**
+## A word to the wise
 
-The package is currently under heavy development.
+The package is new. Really new. I have not yet tested it any more than making
+sure it starts and does not error out. Use at your own risk.
 
 ## Vagrant
 
