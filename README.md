@@ -4,7 +4,8 @@ Vagrant-libvirt setup that runs the [OpenCloud
 Server](https://github.com/opencloud-eu/opencloud) based on the openSUSE package
 that I am currently working on.
 
-This branch (`main`) uses openSUSE Tumbleweed as operating system. The OS can be
+While the `main` uses openSUSE Tumbleweed as the operating system, this branch
+`Leap_15.6` uses openSUSE Leap 15.6. The OS can be
 changed in the Vagrantfile. Please be aware, that this might break the Ansible
 provisioning.
 
@@ -21,8 +22,8 @@ sure it starts and does not error out. Use at your own risk.
 ## Vagrant
 
 1. You need `vagrant`, obviously. And `git`. And Ansible...
-1. Fetch the box, per default this is `opensuse/Tumbleweed.x86_64`, using
-   `vagrant box add opensuse/Tumbleweed.x86_64`.
+1. Fetch the box, per default this is `opensuse/Leap-15.6.x86_64`, using
+   `vagrant box add opensuse/Leap-15.6.x86_64`.
 1. Make sure the git submodules are fully working by issuing
    `git submodule init && git submodule update`
 1. Run `vagrant up`
