@@ -35,8 +35,8 @@
 
     - name: Create the configuration file
       ansible.builtin.template:
-        src: etc_sysconfig_opencloud-server.j2
-        dest: /etc/sysconfig/opencloud-server
+        src: etc_default_opencloud-server.j2
+        dest: /etc/default/opencloud-server
         owner: root
         group: root
         mode: '0644'
