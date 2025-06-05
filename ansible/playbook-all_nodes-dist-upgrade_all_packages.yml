@@ -1,0 +1,14 @@
+---
+- name: Update all packages
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+
+    - name: Update all packages
+      community.general.zypper:
+        name: '*'
+        state: dist-upgrade
+        allow_vendor_change: true
+        extra_args: '--allow-arch-change'
