@@ -7,6 +7,9 @@
 - name: Run playbook-all_nodes-bootstrap_python.yml
   ansible.builtin.import_playbook: playbook-all_nodes-bootstrap_python.yml
 
+- name: Run playbook-all_nodes-dist-upgrade_all_packages.yml
+  ansible.builtin.import_playbook: playbook-all_nodes-dist-upgrade_all_packages.yml
+
 #
 # general configuration
 #
